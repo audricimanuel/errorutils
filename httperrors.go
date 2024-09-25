@@ -3,6 +3,7 @@ package errorutils
 import (
 	"errors"
 	"net/http"
+	"strings"
 )
 
 // ERROR HTTP
@@ -37,7 +38,7 @@ var (
 type (
 	HttpError interface {
 		Error() string
-		CustomMessage(message string) *HttpErrorImpl
+		CustomMessage(message ...string) *HttpErrorImpl
 	}
 	HttpErrorImpl struct {
 		Status  int
@@ -71,8 +72,8 @@ func (e *HttpErrorImpl) Error() string {
 //		}
 //		return nil
 //	}
-func (e *HttpErrorImpl) CustomMessage(message string) *HttpErrorImpl {
-	e.Message = message
+func (e *HttpErrorImpl) CustomMessage(message ...string) *HttpErrorImpl {
+	e.Message = strings.Join(message, " ")
 	return e
 }
 
