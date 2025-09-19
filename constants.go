@@ -1,5 +1,6 @@
 package errorutils
 
+// STATUS
 const (
 	SUCCESS                 = "success"
 	INTERNAL_SERVER_ERROR   = "internal server error"
@@ -22,4 +23,10 @@ const (
 	ALREADY_EXISTS          = "your item already exist"
 	INVALID_PAYLOAD         = "invalid payload"
 	NO_PERMISSION           = "you have no permission to access this resource"
+)
+
+// FORMAT TIME
+const (
+	FORMAT_DATE_DEFAULT     = "2006-01-02"
+	FORMAT_DATETIME_DEFAULT = "2006-01-02 15:04:05"
 )
